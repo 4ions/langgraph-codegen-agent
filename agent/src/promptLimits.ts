@@ -1,0 +1,15 @@
+export const PROMPT_LIMITS = {
+  dependencyFileChars: 2000,
+  implementationFileChars: 1500,
+  implementationSourcesChars: 20000,
+  referenceFilesChars: 3000,
+  existingFileChars: 2000,
+  lastFailureChars: 2000,
+  reviewerFileChars: 3000,
+  fixerFileChars: 2000,
+  generatedFilesChars: 20000,
+  failureDetailChars: 3000,
+  rootCauseChars: 300,
+  defaultTruncateChars: 6000,
+  validationOutputMaxLines: 80,
+} as const;

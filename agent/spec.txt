@@ -1,0 +1,26 @@
+Build a Car Inventory Manager as a React 19 + TypeScript application using the
+already-configured Apollo Client, MUI, and MSW mocks in this boilerplate.
+
+Mandatory:
+1. Fetch and display the list of cars using the GetCars GraphQL query.
+2. Provide a search bar that filters cars by model, and controls to sort the
+   list by year or by make.
+3. Present each car in an MUI Card showing make, model, year, and color.
+4. Render the car image at the correct responsive breakpoint: the "mobile"
+   image at viewport widths of 640px or less, "tablet" between 641px and
+   1023px, and "desktop" at 1024px and above.
+5. Include an "Add Car" form that submits via the AddCar GraphQL mutation and
+   updates the displayed list on success.
+6. Extract all GraphQL data-fetching logic into a useCars() custom hook.
+7. Include unit tests for the search/sort logic and for at least one
+   component that renders car data.
+
+Optional, attempt if time/budget allows:
+- A GetCar query to fetch a single car by id.
+- A year filter usable alongside the model search.
+- A useCarFilters() hook combining search, sort, and year-filter logic.
+
+Do not add a real backend, database, authentication, or deployment
+configuration — the MSW mocks already configured in this boilerplate are the
+only data layer. Do not modify package.json, tsconfig.json, or any
+vite/vitest config file.

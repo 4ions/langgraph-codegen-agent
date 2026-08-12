@@ -1,0 +1,40 @@
+We need a small internal tool for our sales team to keep track of the cars
+currently in the dealership's stock. Build it as a React 19 + TypeScript
+single-page app on top of the boilerplate provided (it already wires up
+Apollo Client, MUI, and MSW for you — don't rip any of that out).
+
+Here's what the tool has to do, no exceptions:
+
+- Pull the current stock from the backend (there's a GetCars query ready to
+  use) and show it to the user as soon as the page loads.
+- Every car shown needs to be inside its own MUI card-style container,
+  and each card must show, at minimum, the make, the model, the year it was
+  made, and its color.
+- Cars have three different images depending on how big the screen is:
+  a "mobile" one for anything 640 pixels wide or narrower, a "tablet" one
+  for the 641-1023 pixel range, and a "desktop" one from 1024 pixels up.
+  Whichever card is showing needs to pick the right image for the current
+  screen size.
+- The salesperson needs a way to type a few letters and instantly narrow
+  the list down to cars whose model matches what they typed. They also need
+  to be able to re-order what's showing, either oldest-to-newest year or
+  newest-to-oldest, or alphabetically by make.
+- There has to be a way to add a brand new car to the stock from the UI
+  itself — a form that, on submit, actually calls the AddCar mutation and
+  the newly added car should show up in the list right after.
+- Don't sprinkle GraphQL calls all over your components — put all of that
+  behind a single custom hook (name it useCars) that components can call
+  into.
+- Ship this with real tests — at minimum, whatever logic handles the
+  searching/sorting, plus at least one component test for something that
+  renders a car's data.
+
+If you have spare time, these would be nice to have but are not required:
+a query to look up one single car by its id, a way to additionally narrow
+results down by year, and a combined hook (useCarFilters) that bundles the
+search + sort + year-filter behavior together.
+
+Scope boundaries: no real server, no database, no login/auth, nothing
+related to deploying this anywhere. The MSW mocks that already exist in the
+boilerplate are the entire data layer — leave package.json, tsconfig.json,
+and the vite/vitest config files untouched.

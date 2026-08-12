@@ -1,0 +1,40 @@
+React 19 + TypeScript project on top of the provided boilerplate (Apollo
+Client, MUI, and MSW mocks are already configured — build on top of them,
+don't replace them). Goal: a Car Inventory Manager.
+
+Testing requirement: unit tests are required for the search/sort logic and
+for at least one component that renders car data — plan for this from the
+start, not as an afterthought.
+
+Architecture requirement: all GraphQL data-fetching logic must live in a
+single custom hook, useCars(), rather than being called directly from
+components.
+
+Data entry requirement: users must be able to add a new car through a form
+in the UI. On submit, it should call the AddCar GraphQL mutation, and the
+newly created car must appear in the on-screen list without a page reload.
+
+Display requirement: cars are shown using MUI Card components, one per car,
+each showing the car's make, model, year, and color.
+
+Image requirement: every car has three image variants (mobile, tablet,
+desktop). The correct one must be shown based on the current viewport width
+— up to 640px uses "mobile", 641px through 1023px uses "tablet", and 1024px
+and above uses "desktop".
+
+Data loading requirement: the list of cars comes from the GetCars GraphQL
+query and should be fetched and rendered when the page loads.
+
+Interaction requirements: a search input narrows the visible cars down by
+matching against the model field; separately, the user can choose to sort
+the visible cars by year or by make.
+
+Nice-to-haves if there's time left: a GetCar query for fetching one car by
+id, a year filter that works alongside the model search, and a
+useCarFilters() hook that combines the search/sort/year-filter logic in one
+place.
+
+Constraints: no real backend, no database, no authentication, nothing about
+deployment — the MSW mocks in the boilerplate are the entire data layer.
+Leave package.json, tsconfig.json, and any vite/vitest config file
+untouched.
